@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome - Avocado Prices</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    th input {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Avocado Prices</h1>
+  <table id="avocado-table">
+    <thead>
+      <tr>
+        <th>Average Price</th>
+        <th>Region</th>
+      </tr>
+      <tr>
+        <th><input type="text" id="filter-average-price" placeholder="Filter Average Price"></th>
+        <th><input type="text" id="filter-region" placeholder="Filter Region"></th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    function fetchAndDisplayData() {
+      fetch('/api/specific-avocado-prices')
+        .then(response => response.json())
+        .then(data => {
+          displayData(data);
+        })
+        .catch(error => console.error('Error fetching specific avocado prices:', error));
+    }
+
+    function displayData(data) {
+      const tableBody = document.querySelector('#avocado-table tbody');
+      tableBody.innerHTML = '';
+
+      data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row.AveragePrice}</td><td>${row.Region}</td>`;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    function filterTable() {
+      const filterAveragePrice = document.getElementById('filter-average-price').value.toLowerCase();
+      const filterRegion = document.getElementById('filter-region').value.toLowerCase();
+
+      const tableRows = document.querySelectorAll('#avocado-table tbody tr');
+
+      tableRows.forEach(row => {
+        const cells = row.getElementsByTagName('td');
+        row.style.display = 'none';
+
+        if (
+          (filterAveragePrice === '' || cells[1].textContent.toLowerCase().includes(filterAveragePrice)) &&
+          (filterRegion === '' || cells[2].textContent.toLowerCase().includes(filterRegion))
+        ) {
+          row.style.display = '';
+        }
+      });
+    }
+
+    document.querySelectorAll('thead input').forEach(input => {
+      input.addEventListener('input', filterTable);
+    });
+
+    fetchAndDisplayData();
+  </script>
+</body>
+</html>
