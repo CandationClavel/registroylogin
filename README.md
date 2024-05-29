@@ -66,7 +66,7 @@ Desarrollar un sistema de registro y login utilizando Node.js y Express para pro
 ## Instrucciones para Ejecutar el Proyecto
 
 1. **Instalar Node.js**: 
-   - Asegúrate de tener Node.js instalado desde [nodejs.org](https://nodejs.org/es).
+   - Asegúrate de tener Node.js instalado desde [nodejs.org](https://nodejs.org/es). También se necesitará MySQL instalado desde [dev.mysql.com](https://dev.mysql.com/downloads/mysql/).
 
 2. **Clonar el repositorio**:
    - Desde una consola, clona el repositorio con el comando:
