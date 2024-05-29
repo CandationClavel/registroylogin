@@ -60,8 +60,8 @@ Desarrollar un sistema de registro y login utilizando Node.js y Express para pro
 - **express**: Framework web para Node.js.
 - **jsonwebtoken**: Implementación de JSON Web Tokens para la autenticación y autorización.
 - **nodemon**: Herramienta para desarrollar aplicaciones Node.js que reinicia automáticamente el servidor cuando se detectan cambios en los archivos.
--**sequelize**: Se utiliza como un ORM (Object-Relational Mapping) para Node.js, específicamente para interactuar con una base de datos relacional, en este caso, MySQL
--**mysql**: Cliente de MySQL para Node.js que proporciona una interfaz rápida y eficiente para conectar y realizar consultas a bases de datos MySQL.
+- **sequelize**: Se utiliza como un ORM (Object-Relational Mapping) para Node.js, específicamente para interactuar con una base de datos relacional, en este caso, MySQL
+- **mysql**: Cliente de MySQL para Node.js que proporciona una interfaz rápida y eficiente para conectar y realizar consultas a bases de datos MySQL.
 
 ## Instrucciones para Ejecutar el Proyecto
 
